@@ -1,12 +1,21 @@
-package infomation;
+package json;
 
-public class DataModel {
+import infomation.BaseInfo;
+import infomation.ShareInfo;
+
+/**
+ * 将本类对象生成json，或将Json解析成本类对象。（ 本类包含较全面的设备信息）
+ * 
+ * @author Kevin-
+ *
+ */
+public class TotalInfoModel {
 
 	private String macAddress;
 	private BaseInfo baseInfo;
 	private ShareInfo shareInfo;
 
-	public DataModel(String maString_p, BaseInfo baseInfo_p, ShareInfo shareInfo_p) {
+	public TotalInfoModel(String maString_p, BaseInfo baseInfo_p, ShareInfo shareInfo_p) {
 		this.macAddress = maString_p;
 		this.baseInfo = baseInfo_p;
 		this.shareInfo = shareInfo_p;

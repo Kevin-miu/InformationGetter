@@ -1,4 +1,4 @@
-package infomation;
+package json;
 
 public class JsonFormatTool {
 

@@ -12,7 +12,7 @@ public class ShareInfo {
 	private int PID;// 共享程序的进程ID
 	private float cpuUsage;// 共享程序的cpu占比%
 	private float memUsage;// 共享程序的内存占比%
-	private float diskSize;// 共享程序的磁盘使用情况(默认为10GB)
+	private long diskSize;// 共享程序的磁盘使用情况(默认为10GB)
 	private long uploadBytes;// 共享程序的上行带宽（暂时不确定如何获取）
 
 	private static ShareInfo instance;
@@ -52,11 +52,11 @@ public class ShareInfo {
 		this.memUsage = memUsage;
 	}
 
-	public float getdiskSize() {
+	public long getdiskSize() {
 		return diskSize;
 	}
 
-	public void setdiskSize(float diskSize) {
+	public void setdiskSize(long diskSize) {
 		this.diskSize = diskSize;
 	}
 

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.Buffer;
+import java.util.Random;
 
 /**
  * 获取linux下某进程的信息，该进程为共享程序
@@ -54,11 +55,13 @@ public class ShareInfoGetter {
 
 	// 测试函数
 	public static void initialize() {
+		Random random = new Random();
 		ShareInfo shareInfo = ShareInfo.getInstance();
-		shareInfo.setPID(10098);
-		shareInfo.setCpuUsage(10.3f);
-		shareInfo.setMemUsage(17.9f);
-		shareInfo.setdiskSize(50.5f);
-		shareInfo.setUploadBytes(445566);
+		shareInfo.setPID(10098 + random.nextInt(1000));
+		shareInfo.setCpuUsage(10 + random.nextInt(10) + random.nextFloat());
+		shareInfo.setMemUsage(17 + random.nextInt(10) + random.nextFloat());
+		shareInfo.setdiskSize(500 + random.nextInt(100));
+		shareInfo.setUploadBytes(4455666 + random.nextInt(10000));
 	}
+
 }

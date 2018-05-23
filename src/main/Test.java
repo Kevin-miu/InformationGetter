@@ -1,18 +1,20 @@
-package infomation;
+package main;
 
 import java.io.IOException;
 
-import com.google.gson.Gson;
-
+import infomation.BaseInfoGetter;
+import infomation.ShareInfo;
+import infomation.ShareInfoGetter;
 import infomation.BaseInfo.CPUInfo;
 import infomation.BaseInfo.DiskInfo;
 import infomation.BaseInfo.IOInfo;
 import infomation.BaseInfo.MemoryInfo;
 import infomation.BaseInfo.NetInfo;
 
-public class Main {
+public class Test {
 
-	public static void main(String[] args) {
+	// 测试函数
+	public static void test() {
 		while (true) {
 			try {
 				System.out.println("----------------基本信息----------------------");
@@ -52,39 +54,29 @@ public class Main {
 				ShareInfoGetter.initialize();
 				System.out.println(shareInfo.toString());
 
-				System.out.println();
-				System.out.println("**********************测试数据模型是否正确************************");
-
-				DataModel dataModel = new DataModel(BaseInfo.getInstance().getMacAddress(), BaseInfo.getInstance(),
-						ShareInfo.getInstance());
-
-				System.out.println(dataModel.toString());
-
-				System.out.println();
-				System.out.println("**************************结束********************");
-
-				String jsonStr = JsonUtil.transformToJson(dataModel);
-				System.out.println("json格式的数据为：\n" + JsonFormatTool.formatJson(jsonStr));
+				// System.out.println();
+				// System.out.println("**********************测试数据模型是否正确************************");
+				//
+				// TotalInfoModel dataModel = new
+				// TotalInfoModel(BaseInfo.getInstance().getMacAddress(),
+				// BaseInfo.getInstance(),
+				// ShareInfo.getInstance());
+				//
+				// System.out.println(dataModel.toString());
+				//
+				// System.out.println();
+				// System.out.println("**************************结束********************");
+				//
+				// String jsonStr = JsonUtil.transformToJson(dataModel);
+				// System.out.println("json格式的数据为：\n" + JsonFormatTool.formatJson(jsonStr));
 
 				System.out.println();
 				System.out.println("-------------------------------------------------------");
 
-				Thread.sleep(3000);
+				Thread.sleep(10000);
 			} catch (IOException | InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-
-		// TestObject object = new TestObject();
-		// TestObject.Friend friend = object.new Friend("朋友小明", 20);
-		// object.setAge(18);
-		// object.setName("小凯文");
-		// object.setFirends(friend);
-		//
-		// Gson gson = new Gson();
-		// String jsonStr2 = gson.toJson(object);
-		// System.out.println("json数据：\n" + JsonFormatTool.formatJson(jsonStr2));
-
 	}
-
 }

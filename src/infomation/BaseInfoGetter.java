@@ -32,7 +32,7 @@ public final class BaseInfoGetter {
 		// 获取存储在线时长的数据结构
 		BaseInfo baseInfo = BaseInfo.getInstance();
 
-		float onlineTime = 0;
+		float onlineTime = 0.0f;
 
 		// 此文件保存了linux内核信息，可以查看在线时长
 		File file = new File("/proc/uptime");
@@ -276,7 +276,6 @@ public final class BaseInfoGetter {
 		return netInfo;
 
 	}
-
 	/**
 	 * 获取磁盘的使用率 执行iostat -d -x命令可以获取相关信息。其中util字段表示使用率
 	 * 
@@ -324,6 +323,12 @@ public final class BaseInfoGetter {
 		return io;
 	}
 
+	/**
+	 * 获取磁盘使用情况
+	 * @return
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
 	public static DiskInfo acquireDiskInfo() throws IOException, InterruptedException {
 		// 定义磁盘使用情况数据结构
 		BaseInfo baseInfo = BaseInfo.getInstance();
