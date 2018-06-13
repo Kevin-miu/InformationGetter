@@ -83,14 +83,15 @@ public final class BaseInfoGetter {
 			// 去掉首尾的空白键
 			line = line.trim();
 			// 找到eth0的信息
-			if (line.startsWith("eth0")) {
+			if (line.startsWith("ether")) {
 				// 分片
 				String[] temp = line.split("\\s+");
 				// System.out.println(temp[4]);
 				// 第4个子字符串就是mac地址
-				mac = temp[4];
+				mac = temp[1];
+				//System.out.println("mac地址是：" + mac);
 				// 存入数据结构
-				baseInfo.setMacAddress(temp[4]);
+				baseInfo.setMacAddress(temp[1]);
 				break;
 			}
 		}
@@ -276,6 +277,7 @@ public final class BaseInfoGetter {
 		return netInfo;
 
 	}
+
 	/**
 	 * 获取磁盘的使用率 执行iostat -d -x命令可以获取相关信息。其中util字段表示使用率
 	 * 
@@ -325,6 +327,7 @@ public final class BaseInfoGetter {
 
 	/**
 	 * 获取磁盘使用情况
+	 * 
 	 * @return
 	 * @throws IOException
 	 * @throws InterruptedException

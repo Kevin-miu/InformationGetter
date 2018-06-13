@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import communication.CommunicationModel;
 import database.DBConnection;
 import json.JsonUtil;
 import json.UploadInfoModel;
@@ -41,12 +42,19 @@ public class Upload {
 		// 1.填充待上传数据
 		UploadInfoModel uploadInfoModel = InfoPadding.paddingInfo(db);
 
-		// 2.生成json
+		// 2.生成json(没用)
 		String jsonStr = JsonUtil.transformToJson(uploadInfoModel);
-		
-		System.out.println(jsonStr);
+
+		// System.out.println("上传 "+jsonStr);
+		System.out.println("上传数据 ");
 
 		// 3.执行上传函数
+		CommunicationModel.uploadInfo(uploadInfoModel);
 
+		// 4.手动更新到区块链
+		CommunicationModel.updateByman();
+
+		// 5.更新后查询（可能会出问题）
+		//CommunicationModel.acquirePoint();
 	}
 }

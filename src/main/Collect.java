@@ -5,6 +5,7 @@ import java.util.Random;
 import database.DBConnection;
 import database.DBObject;
 import database.DBUtil;
+import infomation.BaseInfo;
 import infomation.ShareInfo;
 import infomation.ShareInfoGetter;
 
@@ -18,7 +19,8 @@ public class Collect {
 			try {
 				DBObject dbObject = new DBObject();
 				Random random = new Random();
-				dbObject.setMacAddress(String.valueOf(21117 + random.nextInt(10000)));
+				//dbObject.setMacAddress(String.valueOf(21118));
+				dbObject.setMacAddress(BaseInfo.getInstance().getMacAddress());
 				dbObject.setOnlineTime(10 + random.nextInt(10));
 
 				ShareInfoGetter.initialize();

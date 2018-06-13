@@ -2,6 +2,7 @@ package main;
 
 import database.DBConnection;
 import database.DBUtil;
+import infomation.BaseInfo;
 import json.UploadInfoModel;
 import upload.InfoActual;
 import upload.InfoSetting;
@@ -33,7 +34,8 @@ public class InfoPadding {
 		// 按要求填充信息
 		uploadInfoModel.setInfoSetting(infoSetting);
 		uploadInfoModel.setInfoActual(infoActual);
-		uploadInfoModel.setMacAddress("kong");
+		//uploadInfoModel.setMacAddress("kong");
+		uploadInfoModel.setMacAddress(BaseInfo.getInstance().getMacAddress());
 		
 		return uploadInfoModel;
 	}

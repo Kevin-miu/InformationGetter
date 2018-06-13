@@ -25,7 +25,7 @@ public class DBConnection {
 		this.DBDriver = "com.mysql.jdbc.Driver";
 		this.DBURL = "jdbc:mysql://localhost:3306/hardware";
 		this.DBUser = "root";
-		this.DBPassword = "293335";
+		this.DBPassword = "123456";
 
 		try {
 			// 加载JDBC驱动
